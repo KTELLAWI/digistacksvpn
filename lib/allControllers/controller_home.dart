@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:convert';
 import 'dart:ui';
 
@@ -18,8 +20,7 @@ class ControllerHome extends GetxController {
       return;
     }
     if (vpnConnectionState.value == VpnEngine.vpnDisconnected) {
-      final dataConfigVpn = const Base64Decoder()
-          .convert(vpnInfo.value.base64OpenVpnConfigurationData);
+      final dataConfigVpn = Base64Decoder().convert(vpnInfo.value.base64OpenVpnConfigurationData);
       final configuration = const Utf8Decoder().convert(dataConfigVpn);
 
       // ignore: non_constant_identifier_names
