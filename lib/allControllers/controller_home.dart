@@ -3,7 +3,7 @@
 import 'dart:convert';
 import 'dart:ui';
 
-import 'package:digistacksvpn/allModels/vpn_configuration.dart';
+import 'package:digistacksvpn/allModels/vpn_config.dart';
 import 'package:digistacksvpn/allModels/vpn_info.dart';
 import 'package:digistacksvpn/appPreferences/app_Preferences.dart';
 import 'package:digistacksvpn/vpnEngine/vpn_engine.dart';
@@ -24,15 +24,14 @@ class ControllerHome extends GetxController {
       final configuration = const Utf8Decoder().convert(dataConfigVpn);
 
       // ignore: non_constant_identifier_names
-      final vpnConfiguration = VpnConfiguration(
+      final vpnConfiguration = VpnConfig(
           username: "vpn",
           password: "vpn",
-          counrtyName: vpnInfo.value.countryLongName,
-          config: configuration);
+          config: configuration, country: vpnInfo.value.countryLongName,);
 
-      await VpnEngine.startVpnNow(vpnConfiguration);
+      await VpnEngine.startVpn(vpnConfiguration);
     } else {
-      await VpnEngine.stopVpnNow();
+      await VpnEngine.stopVpn();
     }
   }
 

@@ -44,7 +44,7 @@ class VpnLocationCardWidget extends StatelessWidget {
           Get.back();
           if (homeControler.vpnConnectionState.value ==
               VpnEngine.vpnConnected) {
-            VpnEngine.stopVpnNow();
+            VpnEngine.stopVpn();
             Future.delayed(
                 Duration(seconds: 3), () => homeControler.connectToVpnNow());
           } else {

@@ -194,7 +194,7 @@ class HomeScreen extends StatelessWidget {
         decoration: BoxDecoration(color: Colors.orangeAccent,
         borderRadius: BorderRadius.circular(16)),
         child: Text(
-          homeControler.vpnConnectionState.value == VpnEngine.vpnConnected ? "Not Connected" :
+          homeControler.vpnConnectionState.value == VpnEngine.vpnDisconnected ? "Not Connected" :
           homeControler.vpnConnectionState.replaceAll("", " ").toUpperCase(),
           style: TextStyle(fontSize: 13, color: Colors.white),
         ),
@@ -299,7 +299,7 @@ class HomeScreen extends StatelessWidget {
      
           StreamBuilder<VpnStatus?>(
               initialData: VpnStatus(),
-              stream: VpnEngine.snapshotVpnStatus(),
+              stream: VpnEngine.vpnStatusSnapshot(),
               builder: (context, dataSnapshot) {
                 return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
