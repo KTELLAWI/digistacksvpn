@@ -39,7 +39,7 @@ class _TimerWidgetState extends State<TimerWidget> {
     String twoDigit(int number) => number.toString().padLeft(2, "0");
     final minutes = twoDigit(duration.inMinutes.remainder(60));
     final seconds = twoDigit(duration.inSeconds.remainder(60));
-    final hours = twoDigit(duration.inSeconds.remainder(60));
+    final hours = twoDigit(duration.inHours.remainder(60));
 
     return Text(
       "$hours:$minutes:$seconds",
